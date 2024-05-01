@@ -1,4 +1,5 @@
-import { baseURL } from "@/utiles/constants";
+import { Todo } from "@/types/api";
+import { microCmsFetcher } from "@/utiles/fetcher";
 import { sleep } from "@/utiles/sleep";
 
 type ContainerProps = {
@@ -17,12 +18,7 @@ const Component = ({ todo }: Props) => (
 
 const Container = async (props: ContainerProps) => {
   await sleep(2000);
-  const res = await fetch(`${baseURL}/${props.id}`);
-
-  if (!res.ok) {
-    throw new Error("エラーです");
-  }
-  const todo = await res.json();
+  const todo = await microCmsFetcher<Todo>("/todos", props.id);
 
   return <Component {...props} todo={todo} />;
 };

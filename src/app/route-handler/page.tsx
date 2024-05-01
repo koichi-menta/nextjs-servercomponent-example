@@ -1,16 +1,14 @@
 "use client";
-import { baseURL } from "@/utiles/constants";
 import { useState, useEffect } from "react";
 
 export default function Home() {
   const [todo, setTodo] = useState([]);
 
   useEffect(() => {
-    const res = fetch(baseURL)
+    fetch(`/api`)
       .then((res) => res.json())
       .then((res) => {
-        setTodo(res);
-        console.log(res);
+        setTodo(res.data.contents);
       });
   }, []);
 

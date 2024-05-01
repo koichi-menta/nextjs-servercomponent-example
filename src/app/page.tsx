@@ -6,10 +6,17 @@ export default function Home() {
       <p>
         サーバーコンポーネントとクライアントコンポーネントの特徴をまとめたプロジェクトです。
       </p>
-      <p></p>
-
-      <Link href="/client">クライアントレンダリングページ</Link>
-      <Link href="/server">サーバーレンダリングページ</Link>
+      <p>
+        <Link href="/client">クライアントレンダリングページ</Link>
+      </p>
+      <p>
+        <Link href="/server">サーバーレンダリングページ</Link>
+      </p>
+      <p>
+        <Link href="/route-handler">
+          クライアントレンダリングページ(Route Handler)
+        </Link>
+      </p>
     </main>
   );
 }
