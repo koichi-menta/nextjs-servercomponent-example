@@ -5,7 +5,7 @@ export default function Home() {
   const [todo, setTodo] = useState([]);
 
   useEffect(() => {
-    fetch(`/api`)
+    fetch(`/api/todos`)
       .then((res) => res.json())
       .then((res) => {
         setTodo(res.data.contents);

@@ -7,6 +7,8 @@ export const microCmsFetcher = async <T>(
 ): Promise<T> => {
   const aaa = id ? `/${id}` : "";
   const res = await fetch(`${baseURL}${endpoint}${aaa}`, {
+    // cache: "no-store",
+    next: { tags: ["todo"] },
     headers: {
       "X-MICROCMS-API-KEY": apiKey || "",
     },

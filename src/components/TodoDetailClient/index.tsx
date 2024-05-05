@@ -1,10 +1,7 @@
-import { Todo } from "@/types/api";
-import { microCmsFetcher } from "@/utiles/fetcher";
-import { sleep } from "@/utiles/sleep";
+"use client";
+import { useStore } from "@/store/store";
 
-type ContainerProps = {
-  id: string;
-};
+type ContainerProps = {};
 type Props = {
   todo: any;
 } & ContainerProps;
@@ -16,9 +13,8 @@ const Component = ({ todo }: Props) => (
   </div>
 );
 
-const Container = async (props: ContainerProps) => {
-  await sleep(2000);
-  const todo = await microCmsFetcher<Todo>("/todos", props.id);
+const Container = (props: ContainerProps) => {
+  const todo = useStore((state) => state.todoForm);
 
   return <Component {...props} todo={todo} />;
 };

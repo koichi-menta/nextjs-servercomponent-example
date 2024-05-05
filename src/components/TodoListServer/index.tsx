@@ -2,19 +2,16 @@ import { Todo } from "@/types/api";
 import { MicroCmsType } from "@/types/utiles";
 import { microCmsFetcher } from "@/utiles/fetcher";
 import { sleep } from "@/utiles/sleep";
+import TodoListClient from "@/components/TodoListClient";
 
 type ContainerProps = {};
 type Props = {
-  todo: any;
+  todo: Todo[];
 } & ContainerProps;
 
 const Component = ({ todo }: Props) => (
   <div className="border p-4">
-    {todo.map((item: any) => (
-      <p key={item.id} className="border-t p-1 first:border-none">
-        {item.title}
-      </p>
-    ))}
+    <TodoListClient todo={todo} />
   </div>
 );
 
